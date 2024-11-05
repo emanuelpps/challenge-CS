@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ButtonFowardProps } from "../../Types/types";
 
 const ButtonContainer = styled.div`
   width: 100%;
@@ -22,10 +23,11 @@ const Button = styled.button`
  padding: 10px 20px;
 `;
 
-export const ButtonFoward: React.FC = () => {
+
+export const ButtonFoward: React.FC<ButtonFowardProps> = ({ text, handleClick, formEvent }) => {
   return (
     <ButtonContainer>
-      <Button>Comenzar</Button>
+      <Button onClick={handleClick}>{text}</Button>
     </ButtonContainer>
   );
 };

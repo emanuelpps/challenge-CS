@@ -1,36 +1,22 @@
 import React from "react";
-import styled from "styled-components";
-import { IFormProgress } from "../../Types/types";
+import {
+  Container,
+  TextContainer,
+  Text,
+  InputContainer,
+  Bold,
+} from "../Styles/Styles";
 import { Input } from "../../components/Inputs/Input";
+import useFormValue from "../../Store/FormValue";
 
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-`;
+export const StepOne: React.FC = () => {
+  const { setName, name } = useFormValue() as {
+    setName: (name: string) => void;
+    name: string;
+  };
 
-const TextContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-`;
+  console.log(name);
 
-const Text = styled.p`
-  margin: 0;
-`;
-
-const Bold = styled.span`
-  font-weight: bold;
-`;
-
-const InputContainer = styled.div`
-  width: 100%;
-`;
-export const StepOne: React.FC<IFormProgress> = ({ setProgress }) => {
   return (
     <Container>
       <TextContainer>
@@ -42,7 +28,11 @@ export const StepOne: React.FC<IFormProgress> = ({ setProgress }) => {
         <Text> Queremos conocerte, ¿cuál es tu nombre?</Text>
       </TextContainer>
       <InputContainer>
-        <Input placeholder="Nombre" />
+        <Input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Nombre"
+        />
       </InputContainer>
     </Container>
   );

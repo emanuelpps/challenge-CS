@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import {
   StepOne,
   StepTwo,
@@ -8,49 +7,40 @@ import {
   StepFive,
 } from "./Components";
 import { ButtonFoward } from "../components/Buttons/ButtonFoward";
-
-const FormContainer = styled.div`
-  width: 80%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const StyledForm = styled.form`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-`;
+import { FormContainer, StyledForm, ButtonContainer } from "./Styles/Styles";
 
 export const Form: React.FC = () => {
   const [progress, setProgress] = useState<number>(0);
 
+  const handleFormProgress = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setProgress((prevProgress) => Math.min(prevProgress + 1, 4));
+  };
+
   const FormStep = () => {
     switch (progress) {
       case 0:
-        return <StepOne setProgress={setProgress} />;
+        return <StepOne />;
       case 1:
-        return <StepTwo setProgress={setProgress} />;
+        return <StepTwo />;
       case 2:
-        return <StepThree setProgress={setProgress} />;
+        return <StepThree />;
       case 3:
-        return <StepFourth setProgress={setProgress} />;
+        return <StepFourth />;
       case 4:
-        return <StepFive setProgress={setProgress} />;
+        return <StepFive />;
       default:
-        return <StepOne setProgress={setProgress} />;
+        return <StepOne />;
     }
   };
+
   return (
     <FormContainer>
-      <StyledForm>
+      <StyledForm onSubmit={handleFormProgress}>
         {FormStep()}
-        <ButtonFoward />
+        <ButtonContainer>
+          <ButtonFoward handleClick={() => {}} text="Siguiente" />
+        </ButtonContainer>
       </StyledForm>
     </FormContainer>
   );

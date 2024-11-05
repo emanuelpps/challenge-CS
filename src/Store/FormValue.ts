@@ -1,12 +1,17 @@
 import { create } from "zustand";
+import { FormDataValues } from "../Types/types";
 
-const useFormValue = create((set) => ({
+const useFormValue = create<FormDataValues>((set) => ({
   name: "",
-  email: "",
-  message: "",
+  jobPosition: "",
+  challenge: "",
+  CRM: "",
+  industy: "",
   setName: (name: string) => set({ name }),
-  setEmail: (email: string) => set({ email }),
-  setMessage: (message: string) => set({ message }),
+  setJobPosition: (jobPosition: string) => set({ jobPosition }),
+  setChallenge: (challenge: string) => set({ challenge }),
+  setCRM: (CRM: string) => set({ CRM }),
+  setIndusty: (industy: string) => set({ industy }),
 }));
 
 export default useFormValue;

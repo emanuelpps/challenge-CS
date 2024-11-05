@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
+import { NameInput } from "../../Types/types";
 
 const StyledInput = styled.input`
   width: 100%;
@@ -14,13 +15,14 @@ const StyledInput = styled.input`
 `;
 
 export const Input = forwardRef(
-  ({ value, onChange, placeholder }: any, ref: any) => {
+  ({ onChange, placeholder, value }: NameInput) => {
     return (
       <StyledInput
-        ref={ref}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        type="text"
+        required
       />
     );
   }
