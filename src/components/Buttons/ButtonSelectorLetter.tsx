@@ -1,25 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-import { ButtonProps } from "../../Types/types";
+
+interface Props {
+  keyValue: string;
+  text: string;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  isSelected?: boolean;
+}
 
 const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ isSelected?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: calc(100%);
-  background-color: transparent;
-  color: black;
+  background-color: ${({ isSelected }) => (isSelected ? "black" : "white")};
+  color: ${({ isSelected }) => (isSelected ? "white" : "black")};
   border: 1px solid black;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  &:hover {
-    background-color: gray;
-  }
   border-radius: 30px;
   padding: 5px 15px 5px 5px;
   gap: 10px;
@@ -44,15 +47,12 @@ const KeyContainer = styled.div`
   align-items: center;
 `;
 
-export const ButtonSelectorLetter: React.FC<ButtonProps> = ({
-  text,
-  keyValue,
-}) => {
+export const ButtonSelectorLetter: React.FC<Props> = (props) => {
   return (
     <ButtonContainer>
-      <Button>
-        <KeyContainer>{keyValue}</KeyContainer>
-        <Text>{text}</Text>
+      <Button onClick={props.onClick} isSelected={props.isSelected}>
+        <KeyContainer>{props.keyValue}</KeyContainer>
+        <Text>{props.text}</Text>
       </Button>
     </ButtonContainer>
   );

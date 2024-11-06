@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { ButtonProps } from "../../Types/types";
+
+interface ButtonProps {
+  text: string;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  type?: "submit" | "button" | "reset";
+}
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -22,10 +27,10 @@ const Button = styled.button`
   padding: 10px 20px;
 `;
 
-export const ButtonFoward: React.FC<ButtonProps> = ({ text }) => {
+export const ButtonFoward: React.FC<ButtonProps> = ({ text, onClick  }) => {
   return (
     <ButtonContainer>
-      <Button>{text}</Button>
+      <Button onClick={onClick}>{text}</Button>
     </ButtonContainer>
   );
 };

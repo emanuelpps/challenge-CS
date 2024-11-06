@@ -5,15 +5,22 @@ import {
   Text,
   InputContainer,
   Bold,
+  ButtonContainer,
 } from "../Styles/Styles";
 import { Input } from "../../components/Inputs/Input";
 import useFormValue from "../../Store/FormValue";
-import { FormDataValues } from "../../Types/types";
+import { ButtonFoward } from "../../components/Buttons/ButtonFoward";
+import { Link } from "react-router-dom";
+import useFormProgress from "../../Store/FormProgress";
+import { handleProgressFoward } from "../../utils/handleProgressForm";
 
-export const StepOne: React.FC<FormDataValues> = () => {
-  const { setName, name } = useFormValue();
+export const StepOne: React.FC = () => {
+  const { progress, setProgress } = useFormProgress();
+  const { name, setData } = useFormValue();
 
-  console.log(name);
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setData("name", e.target.value);
+  };
 
   return (
     <Container>
@@ -28,10 +35,18 @@ export const StepOne: React.FC<FormDataValues> = () => {
       <InputContainer>
         <Input
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={handleNameChange}
           placeholder={name ? name : "nombre"}
         />
       </InputContainer>
+      <ButtonContainer>
+        <Link to="/step-2">
+          <ButtonFoward
+            text="Continuar"
+            onClick={() => handleProgressFoward(setProgress, progress)}
+          />
+        </Link>
+      </ButtonContainer>
     </Container>
   );
 };

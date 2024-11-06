@@ -7,13 +7,17 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 30px;
+
+  @media (min-width: 769px) {
+    width: 80%;
+  }
 `;
 
-export const TextContainer = styled.div`
+export const TextContainer = styled.div<{ progress?: number }>`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: ${({ progress }) => (progress === 5 ? "2px" : "30px")};
 `;
 
 export const Text = styled.p`
@@ -37,6 +41,10 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 769px) {
+    width: 100%;
+  }
 `;
 
 export const StyledForm = styled.form`
@@ -66,4 +74,14 @@ export const ButtonSelectorContainer = styled.div<{ progress?: number }>`
   & > :nth-child(odd):last-child {
     grid-column: span 2;
   }
+`;
+
+export const FinishTitle = styled.p`
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+`;
+
+export const ItalicText = styled.p`
+  font-style: italic;
 `;

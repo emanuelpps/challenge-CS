@@ -1,12 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import headerImage from "/assets/images/mobile-header.svg";
 import CsLogo from "/assets/images/cs-logo.svg";
 import useFormProgress from "../../Store/FormProgress";
-import { IFormProgress } from "../../Types/types";
-import { useEffect, useState } from "react";
+
 const Container = styled.div`
   width: 100vw;
   height: 100%;
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const HeaderImage = styled.div`

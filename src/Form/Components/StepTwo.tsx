@@ -5,14 +5,24 @@ import {
   Text,
   Bold,
   ButtonSelectorContainer,
+  ButtonContainer,
 } from "../Styles/Styles";
 import useFormValue from "../../Store/FormValue";
 import { ButtonSelector } from "../../components/Buttons/ButtonSelector";
 import useFormProgress from "../../Store/FormProgress";
+import { ButtonBackward } from "../../components/Buttons/ButtonBackward";
+import { ButtonFoward } from "../../components/Buttons/ButtonFoward";
+import backwardIcon from "/assets/icons/left-arrow.svg";
+import { Link } from "react-router-dom";
+import {
+  handleProgressBackward,
+  handleProgressFoward,
+} from "../../utils/handleProgressForm";
 
 export const StepTwo: React.FC = () => {
-    
-  const { progress } = useFormProgress();
+  const { jobPosition, name, setData } = useFormValue();
+  const { progress, setProgress } = useFormProgress();
+
   const positions = [
     "Board Member",
     "C-level",
@@ -23,7 +33,10 @@ export const StepTwo: React.FC = () => {
     "Ejecutivo/analista",
     "otro",
   ];
-  const { name } = useFormValue();
+  const handlePositionChange = (position: string) => {
+    setData("jobPosition", position);
+  };
+
   return (
     <Container>
       <TextContainer>
@@ -33,11 +46,32 @@ export const StepTwo: React.FC = () => {
         </Text>
         <Text>¿Cuál es tu cargo/posición dentro de tu empresa?</Text>
       </TextContainer>
-      <ButtonSelectorContainer  progress={progress}>
-        {positions.map((position) => (
-          <ButtonSelector key={position} text={position} />
+      <ButtonSelectorContainer progress={progress}>
+        {positions.map((position, index) => (
+          <ButtonContainer>
+            <ButtonSelector
+              key={index}
+              text={position}
+              isSelected={jobPosition === position}
+              onClick={() => handlePositionChange(position)}
+            />
+          </ButtonContainer>
         ))}
       </ButtonSelectorContainer>
+      <ButtonContainer>
+        <Link to="/step-1">
+          <ButtonBackward
+            icon={backwardIcon}
+            onClick={() => handleProgressBackward(setProgress, progress)}
+          />
+        </Link>
+        <Link to="/step-3">
+          <ButtonFoward
+            text="Continuar"
+            onClick={() => handleProgressFoward(setProgress, progress)}
+          />
+        </Link>
+      </ButtonContainer>
     </Container>
   );
 };

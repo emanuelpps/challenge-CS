@@ -3,15 +3,24 @@ import {
   Container,
   TextContainer,
   Text,
-  Bold,
   ButtonSelectorContainer,
+  ButtonContainer,
 } from "../Styles/Styles";
-import useFormValue from "../../Store/FormValue";
 import { ButtonSelector } from "../../components/Buttons/ButtonSelector";
 import useFormProgress from "../../Store/FormProgress";
+import { ButtonBackward } from "../../components/Buttons/ButtonBackward";
+import { ButtonFoward } from "../../components/Buttons/ButtonFoward";
+import { Link } from "react-router-dom";
+import backwardIcon from "/assets/icons/left-arrow.svg";
+import useFormValue from "../../Store/FormValue";
+import {
+  handleProgressFoward,
+  handleProgressBackward,
+} from "../../utils/handleProgressForm";
 
 export const StepFourth: React.FC = () => {
-  const { progress } = useFormProgress();
+  const { setData, CRM } = useFormValue();
+  const { progress, setProgress } = useFormProgress();
   const crm = [
     "SAP",
     "Microsoft Dynamics",
@@ -23,6 +32,10 @@ export const StepFourth: React.FC = () => {
     "CRM Propio",
     "No tengo CRM",
   ];
+
+  const handleCRMChange = (CRM: string) => {
+    setData("CRM", CRM);
+  };
   return (
     <Container>
       <TextContainer>
@@ -30,9 +43,29 @@ export const StepFourth: React.FC = () => {
       </TextContainer>
       <ButtonSelectorContainer progress={progress}>
         {crm.map((platform) => (
-          <ButtonSelector key={platform} text={platform} />
+          <ButtonSelector
+            key={platform}
+            text={platform}
+            onClick={() => handleCRMChange(platform)}
+            isSelected={CRM === platform}
+          />
         ))}
       </ButtonSelectorContainer>
+      <ButtonContainer>
+        <Link to="/step-3">
+          <ButtonBackward
+            text="Volver"
+            icon={backwardIcon}
+            onClick={() => handleProgressBackward(setProgress, progress)}
+          />
+        </Link>
+        <Link to="/step-5">
+          <ButtonFoward
+            text="Continuar"
+            onClick={() => handleProgressFoward(setProgress, progress)}
+          />
+        </Link>
+      </ButtonContainer>
     </Container>
   );
 };
