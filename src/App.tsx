@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { AsideBackground } from "./components/AsideBackground/AsideBackground";
 import { HeaderMobile } from "./components/HeaderMobile/HeaderMobile";
 import { Form } from "./Form/Form";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import {
   StepOne,
   StepTwo,
@@ -12,9 +12,11 @@ import {
   StepSix,
 } from "./Form/Components";
 import { ProgressBar } from "./components/ProgressBar/ProgressBar";
+import useFormValue from "./Store/FormValue";
 
 const GlobalStyle = createGlobalStyle`
   * {
+  text-decoration: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -61,6 +63,14 @@ const AsideContainer = styled.div`
   background-position: center;
 `;
 
+const ProtectedRoute = ({ children }: { children: React.ReactElement }) => {
+  const { name } = useFormValue();
+  if (!name) {
+    return <Navigate to="/" />;
+  }
+  return children;
+};
+
 function App() {
   return (
     <>
@@ -73,11 +83,46 @@ function App() {
             <Routes>
               <Route path="/" element={<Form />}>
                 <Route index element={<StepOne />} />
-                <Route path="step-2" element={<StepTwo />} />
-                <Route path="step-3" element={<StepThree />} />
-                <Route path="step-4" element={<StepFourth />} />
-                <Route path="step-5" element={<StepFive />} />
-                <Route path="step-6" element={<StepSix />} />
+                <Route
+                  path="step-2"
+                  element={
+                    <ProtectedRoute>
+                      <StepTwo />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="step-3"
+                  element={
+                    <ProtectedRoute>
+                      <StepThree />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="step-4"
+                  element={
+                    <ProtectedRoute>
+                      <StepFourth />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="step-5"
+                  element={
+                    <ProtectedRoute>
+                      <StepFive />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="step-6"
+                  element={
+                    <ProtectedRoute>
+                      <StepSix />
+                    </ProtectedRoute>
+                  }
+                />
               </Route>
             </Routes>
             <AsideContainer>

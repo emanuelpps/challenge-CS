@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import headerImage from "/assets/images/mobile-header.svg";
 import CsLogo from "/assets/images/cs-logo.svg";
-import useFormProgress from "../../Store/FormProgress";
+import { useLocation } from "react-router-dom";
+import { pageFormIndex } from "../../utils/pageFormIndex";
 
 const Container = styled.div`
   width: 100vw;
@@ -39,15 +40,15 @@ const Logo = styled.div`
 const FormProgress = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  right: 5%;
   height: 20%;
   display: flex;
   align-items: center;
 `;
 
 const IndexNumber = styled.p`
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 500;
 `;
 
 const Number = styled.p`
@@ -55,15 +56,17 @@ const Number = styled.p`
 `;
 
 export const HeaderMobile = () => {
-  const { progress } = useFormProgress();
+  const location = useLocation();
+
+  const currentStep = pageFormIndex(location.pathname);
 
   return (
     <Container>
       <HeaderImage>
         <Logo />
         <FormProgress>
-          <IndexNumber>{`0${progress + 1}| `}</IndexNumber>
-          <Number>08</Number>
+          <IndexNumber>{`0${currentStep} |`}</IndexNumber>
+          <Number> &nbsp;08</Number>
         </FormProgress>
       </HeaderImage>
     </Container>

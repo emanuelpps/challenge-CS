@@ -89,12 +89,17 @@ export const ItalicText = styled.p`
   font-style: italic;
 `;
 
-export const BackgroundColor = styled.div`
+export const BackgroundColor = styled.div<{ path?: string }>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #00ccbc;
   z-index: -1;
+  @media (min-width: 768px) {
+    background-color: #00ccbc;
+  }
+  @media (max-width: 767px) {
+    background-color: white;
+  }
 `;

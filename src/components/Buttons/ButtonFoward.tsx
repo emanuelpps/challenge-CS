@@ -21,6 +21,7 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
   &:hover {
     background-color: gray;
   }
@@ -34,6 +35,10 @@ const ArrowImage = styled.img`
 width: 13px;
 margin-left: 8px;`
 
+const ButtonText = styled.span`
+  text-decoration: none;
+`;
+
 export const ButtonFoward: React.FC<ButtonProps> = ({
   text,
   onClick,
@@ -41,7 +46,7 @@ export const ButtonFoward: React.FC<ButtonProps> = ({
   return (
     <ButtonContainer>
       <Button onClick={onClick}>
-        {text}
+      <ButtonText>{text}</ButtonText>
         {text === "Siguiente" && <ArrowImage src={rightArrow} alt="Right Arrow"/>}
       </Button>
     </ButtonContainer>
