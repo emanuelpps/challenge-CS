@@ -8,8 +8,11 @@ import {
 } from "../Styles/Styles";
 import useFormValue from "../../Store/FormValue";
 import { ButtonSelector } from "../../components/Buttons/ButtonSelector";
+import useFormProgress from "../../Store/FormProgress";
 
 export const StepTwo: React.FC = () => {
+    
+  const { progress } = useFormProgress();
   const positions = [
     "Board Member",
     "C-level",
@@ -30,7 +33,7 @@ export const StepTwo: React.FC = () => {
         </Text>
         <Text>¿Cuál es tu cargo/posición dentro de tu empresa?</Text>
       </TextContainer>
-      <ButtonSelectorContainer>
+      <ButtonSelectorContainer  progress={progress}>
         {positions.map((position) => (
           <ButtonSelector key={position} text={position} />
         ))}

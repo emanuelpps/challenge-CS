@@ -1,5 +1,5 @@
 export interface IFormProgress {
-  progress: number;
+  progress?: number;
   setProgress: (progress: number) => void;
 }
 
@@ -29,4 +29,8 @@ export interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   icon?: string;
   keyValue?: string;
+}
+
+export interface ButtonSelectorProps {
+  progress?: number;
 }

@@ -18,6 +18,8 @@ export const TextContainer = styled.div`
 
 export const Text = styled.p`
   margin: 0;
+  font-size: 19px;
+  font-weight: light;
 `;
 
 export const Bold = styled.span`
@@ -52,11 +54,16 @@ export const ButtonContainer = styled.div`
   gap: 10px;
 `;
 
-export const ButtonSelectorContainer = styled.div<{ progress: number }>`
+export const ButtonSelectorContainer = styled.div<{ progress?: number }>`
   display: ${({ progress }) => (progress === 2 ? "flex" : "grid")};
   flex-direction: ${({ progress }) => (progress === 2 ? "column" : "initial")};
-  grid-template-columns: ${({ progress }) => (progress !== 2 ? "repeat(2, minmax(0, 1fr))" : "initial")};
+  grid-template-columns: ${({ progress }) =>
+    progress !== 2 ? "repeat(2, minmax(0, 1fr))" : "initial"};
   gap: 10px;
-  grid-template-rows: ${({ progress }) => (progress !== 2 ? `repeat(${progress}, minmax(0, 1fr))` : "initial")};
+  grid-template-rows: ${({ progress }) =>
+    progress !== 2 ? `repeat(${progress}, minmax(0, 1fr))` : "initial"};
+  grid-auto-flow: dense;
+  & > :nth-child(odd):last-child {
+    grid-column: span 2;
+  }
 `;
-

@@ -10,6 +10,7 @@ const ButtonContainer = styled.div`
 const Button = styled.button`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: calc(100%);
   background-color: transparent;
   color: black;
@@ -19,25 +20,28 @@ const Button = styled.button`
   &:hover {
     background-color: gray;
   }
-  border-radius: 50px;
-  gap: 5px;
+  border-radius: 30px;
+  padding: 5px 15px 5px 5px;
+  gap: 10px;
 `;
 
 const Text = styled.p`
   margin: 0;
   font-size: 0.6rem;
   width: 100%;
-
+  display: flex;
 `;
 
 const KeyContainer = styled.div`
   display: flex;
+  background-color: #00ccbc;
+  border-radius: 30px;
+  padding: 7px 20px 7px 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.7rem;
   justify-content: center;
   align-items: center;
-  background-color: #00ccbc;
-  border-radius: 50px;
-  padding: 5px 20px;
-  color: white;
 `;
 
 export const ButtonSelectorLetter: React.FC<ButtonProps> = ({

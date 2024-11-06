@@ -3,10 +3,8 @@ import {
   Container,
   TextContainer,
   Text,
-  Bold,
   ButtonSelectorContainer,
 } from "../Styles/Styles";
-import useFormValue from "../../Store/FormValue";
 import { ButtonSelectorLetter } from "../../components/Buttons/ButtonSelectorLetter";
 import useFormProgress from "../../Store/FormProgress";
 
@@ -21,15 +19,10 @@ export const StepThree: React.FC = () => {
     F: "Optimizar procesos operativos",
     G: "Otros",
   };
-  const { name } = useFormValue();
   return (
     <Container>
       <TextContainer>
-        <Text>
-          Genial <Bold>{name}</Bold>, ahora nos gustaría tener cierta info para
-          diseñar una gran propuesta de valor para ti:
-        </Text>
-        <Text>¿Cuál es tu cargo/posición dentro de tu empresa?</Text>
+        <Text>¿Cuáles son tus principales desafíos para 2024?</Text>
       </TextContainer>
       <ButtonSelectorContainer progress={progress}>
         {Object.entries(challenges).map(([key, value]) => (
@@ -39,4 +32,3 @@ export const StepThree: React.FC = () => {
     </Container>
   );
 };
-

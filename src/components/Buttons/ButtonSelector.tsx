@@ -23,7 +23,7 @@ const Button = styled.button`
 
 const Text = styled.p`
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 11px;
 `;
 
 export const ButtonSelector: React.FC<ButtonProps> = ({
