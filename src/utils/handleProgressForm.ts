@@ -9,5 +9,6 @@ export const handleProgressBackward = (
   setProgress: (progress: number) => void,
   currentProgress: number
 ) => {
-  setProgress(Math.max(currentProgress - 1, 0));
+  setProgress(currentProgress - 1);
 };
+

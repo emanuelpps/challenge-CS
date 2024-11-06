@@ -39,14 +39,14 @@ export const StepOne: React.FC = () => {
           placeholder={name ? name : "nombre"}
         />
       </InputContainer>
-      <ButtonContainer>
-        <Link to="/step-2">
-          <ButtonFoward
-            text="Continuar"
-            onClick={() => handleProgressFoward(setProgress, progress)}
-          />
-        </Link>
-      </ButtonContainer>
+        <ButtonContainer>
+          <Link to="/step-2">
+            <ButtonFoward
+              text="Siguiente"
+              onClick={() => handleProgressFoward(setProgress, progress)}
+            />
+          </Link>
+        </ButtonContainer>
     </Container>
   );
 };

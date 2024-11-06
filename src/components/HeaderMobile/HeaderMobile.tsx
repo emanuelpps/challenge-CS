@@ -1,11 +1,14 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import headerImage from "/assets/images/mobile-header.svg";
 import CsLogo from "/assets/images/cs-logo.svg";
 import useFormProgress from "../../Store/FormProgress";
 
 const Container = styled.div`
   width: 100vw;
+  padding-left: 10px;
   height: 100%;
+  min-height: 200px;
+  max-height: 200px;
   @media (min-width: 768px) {
     display: none;
   }
@@ -14,12 +17,13 @@ const Container = styled.div`
 const HeaderImage = styled.div`
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 100%;
   background-image: url(${headerImage});
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 `;
+
 const Logo = styled.div`
   position: absolute;
   top: 40%;
@@ -33,11 +37,9 @@ const Logo = styled.div`
 `;
 
 const FormProgress = styled.div`
-  width: 100%;
   position: absolute;
-  top: 0%;
-  left: 85%;
-  width: 100%;
+  top: 0;
+  right: 0;
   height: 20%;
   display: flex;
   align-items: center;

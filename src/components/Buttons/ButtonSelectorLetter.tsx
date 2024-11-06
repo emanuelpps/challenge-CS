@@ -50,7 +50,11 @@ const KeyContainer = styled.div`
 export const ButtonSelectorLetter: React.FC<Props> = (props) => {
   return (
     <ButtonContainer>
-      <Button onClick={props.onClick} isSelected={props.isSelected}>
+      <Button
+        onClick={props.onClick}
+        isSelected={props.isSelected}
+        type="button"
+      >
         <KeyContainer>{props.keyValue}</KeyContainer>
         <Text>{props.text}</Text>
       </Button>

@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { ButtonProps } from "../../Types/types";
+
+interface ButtonProps {
+  icon: string;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -25,7 +29,7 @@ const Button = styled.button`
 export const ButtonBackward: React.FC<ButtonProps> = ({ icon }) => {
   return (
     <ButtonContainer>
-      <Button>
+      <Button type="button">
         <img src={icon} alt="Backward icon" />
       </Button>
     </ButtonContainer>

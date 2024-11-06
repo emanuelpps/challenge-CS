@@ -24,7 +24,7 @@ const Text = styled.p`
 
 export const ButtonSelector: React.FC<Props> = (props) => {
   return (
-    <Button isSelected={props.isSelected} onClick={props.onClick}>
+    <Button isSelected={props.isSelected} onClick={props.onClick} type="button">
       <Text>{props.text}</Text>
     </Button>
   );

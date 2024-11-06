@@ -1,17 +1,21 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import {
   Container,
   TextContainer,
   Text,
   ItalicText,
   FinishTitle,
+  BackgroundColor,
 } from "../Styles/Styles";
 import useFormProgress from "../../Store/FormProgress";
 
 export const StepSix: React.FC = () => {
+  const location = useLocation();
   const { progress } = useFormProgress();
   return (
     <Container>
+      <BackgroundColor path={location.pathname}/>
       <TextContainer>
         <TextContainer progress={progress}>
           <Text>

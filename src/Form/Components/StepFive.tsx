@@ -62,14 +62,13 @@ export const StepFive: React.FC = () => {
       <ButtonContainer>
         <Link to="/step-4">
           <ButtonBackward
-            text="Regresar"
             icon={backwardIcon}
             onClick={() => handleProgressBackward(setProgress, progress)}
           />
         </Link>
         <Link to="/step-6">
           <ButtonFoward
-            text="Continuar"
+            text="Siguiente"
             onClick={() => handleProgressFoward(setProgress, progress)}
           />
         </Link>

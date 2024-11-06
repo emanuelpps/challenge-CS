@@ -59,7 +59,7 @@ export const StepTwo: React.FC = () => {
         ))}
       </ButtonSelectorContainer>
       <ButtonContainer>
-        <Link to="/step-1">
+        <Link to="/">
           <ButtonBackward
             icon={backwardIcon}
             onClick={() => handleProgressBackward(setProgress, progress)}
@@ -67,7 +67,7 @@ export const StepTwo: React.FC = () => {
         </Link>
         <Link to="/step-3">
           <ButtonFoward
-            text="Continuar"
+            text="Siguiente"
             onClick={() => handleProgressFoward(setProgress, progress)}
           />
         </Link>

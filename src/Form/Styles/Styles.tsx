@@ -7,7 +7,6 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 30px;
-
   @media (min-width: 769px) {
     width: 80%;
   }
@@ -36,14 +35,13 @@ export const InputContainer = styled.div`
 
 export const FormContainer = styled.div`
   width: 90%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     width: 100%;
+    height: 100%;
   }
 `;
 
@@ -58,6 +56,11 @@ export const StyledForm = styled.form`
 
 export const ButtonContainer = styled.div`
   width: 100%;
+  display: flex;
+  gap: 10px;
+`;
+export const FinishButton = styled.div`
+  width: 80%;
   display: flex;
   gap: 10px;
 `;
@@ -84,4 +87,14 @@ export const FinishTitle = styled.p`
 
 export const ItalicText = styled.p`
   font-style: italic;
+`;
+
+export const BackgroundColor = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00ccbc;
+  z-index: -1;
 `;

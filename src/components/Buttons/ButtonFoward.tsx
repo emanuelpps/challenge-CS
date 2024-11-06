@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import rightArrow from "/assets/icons/right-arrow.svg"; // Asegúrate de que la ruta del archivo sea correcta
 
 interface ButtonProps {
   text: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  type?: "submit" | "button" | "reset";
+  type?: "button";
 }
 
 const ButtonContainer = styled.div`
@@ -25,12 +26,24 @@ const Button = styled.button`
   }
   border-radius: 50px;
   padding: 10px 20px;
+  display: flex;
+  align-items: center;
 `;
 
-export const ButtonFoward: React.FC<ButtonProps> = ({ text, onClick  }) => {
+const ArrowImage = styled.img`
+width: 13px;
+margin-left: 8px;`
+
+export const ButtonFoward: React.FC<ButtonProps> = ({
+  text,
+  onClick,
+}) => {
   return (
     <ButtonContainer>
-      <Button onClick={onClick}>{text}</Button>
+      <Button onClick={onClick}>
+        {text}
+        {text === "Siguiente" && <ArrowImage src={rightArrow} alt="Right Arrow"/>}
+      </Button>
     </ButtonContainer>
   );
 };
