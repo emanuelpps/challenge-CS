@@ -74,25 +74,39 @@ export const ButtonSelectorContainer = styled.div<{ progress?: number }>`
   grid-template-rows: ${({ progress }) =>
     progress !== 2 ? `repeat(${progress}, minmax(0, 1fr))` : "initial"};
   grid-auto-flow: dense;
+
+  /* Estilo para la versión móvil */
   @media (max-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en móvil */
     gap: 10px;
+
+    /* Centrar el contenido de los botones */
     & > * {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
-    & > :last-child {
-      grid-column: span 2;
+
+    /* Si la cantidad de botones es impar, el último botón ocupará el ancho completo */
+    & > :nth-child(odd):last-child {
+      grid-column: span 2; /* El último botón ocupará el ancho completo */
+    }
+
+    /* Si la cantidad de botones es par, asegurar que todos los botones se distribuyan en dos columnas */
+    &:nth-child(even) {
+      grid-column: span 1; /* Cada uno ocupará una columna individual */
     }
   }
+
+  /* Estilo para dispositivos de escritorio (sin cambios) */
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Limita a máximo 3 columnas en desktop */
     gap: 10px;
     justify-content: flex-start;
+
     & > * {
       width: 100%;
       display: flex;
@@ -102,6 +116,7 @@ export const ButtonSelectorContainer = styled.div<{ progress?: number }>`
     }
   }
 `;
+
 
 export const FinishTitle = styled.p`
   margin: 0;
