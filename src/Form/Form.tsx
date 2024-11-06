@@ -8,19 +8,24 @@ import {
 } from "./Components";
 import { ButtonFoward } from "../components/Buttons/ButtonFoward";
 import { FormContainer, StyledForm, ButtonContainer } from "./Styles/Styles";
+import useFormValue from "../Store/FormValue";
+import { ButtonBackward } from "../components/Buttons/ButtonBackward";
+import backwardIcon from "/assets/icons/left-arrow.svg";
+import useFormProgress from "../Store/FormProgress";
 
 export const Form: React.FC = () => {
-  const [progress, setProgress] = useState<number>(0);
+  const { progress, setProgress } = useFormProgress();
+  const { name, setName } = useFormValue();
 
   const handleFormProgress = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setProgress((prevProgress) => Math.min(prevProgress + 1, 4));
+    setProgress(Math.min(progress + 1, 4));
   };
 
   const FormStep = () => {
     switch (progress) {
       case 0:
-        return <StepOne />;
+        return <StepOne name={name ? name : ""} setName={setName} />;
       case 1:
         return <StepTwo />;
       case 2:
@@ -30,7 +35,7 @@ export const Form: React.FC = () => {
       case 4:
         return <StepFive />;
       default:
-        return <StepOne />;
+        return <StepOne name={name ? name : ""} setName={setName} />;
     }
   };
 
@@ -39,7 +44,11 @@ export const Form: React.FC = () => {
       <StyledForm onSubmit={handleFormProgress}>
         {FormStep()}
         <ButtonContainer>
-          <ButtonFoward handleClick={() => {}} text="Siguiente" />
+          <ButtonBackward icon={backwardIcon} type="button" />
+          <ButtonFoward
+            text="Siguiente"
+            type={progress === 4 ? "submit" : "button"}
+          />
         </ButtonContainer>
       </StyledForm>
     </FormContainer>

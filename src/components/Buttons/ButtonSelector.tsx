@@ -3,16 +3,15 @@ import styled from "styled-components";
 import { ButtonProps } from "../../Types/types";
 
 const ButtonContainer = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: start;
-  align-items: center;
 `;
 
 const Button = styled.button`
-  height: 100%;
-  background-color: #231331;
-  color: white;
-  border: none;
+  width: calc(100%);
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
   cursor: pointer;
   transition: background-color 0.3s ease;
   &:hover {
@@ -22,10 +21,21 @@ const Button = styled.button`
   padding: 10px 20px;
 `;
 
-export const ButtonFoward: React.FC<ButtonProps> = ({ text }) => {
+const Text = styled.p`
+  margin: 0;
+  font-size: 0.8rem;
+`;
+
+export const ButtonSelector: React.FC<ButtonProps> = ({
+  text,
+  handleClick,
+  formEvent,
+}) => {
   return (
     <ButtonContainer>
-      <Button>{text}</Button>
+      <Button onClick={handleClick}>
+        <Text>{text}</Text>
+      </Button>
     </ButtonContainer>
   );
 };

@@ -11,7 +11,7 @@ const useFormValue = create<FormDataValues>((set) => ({
   setJobPosition: (jobPosition: string) => set({ jobPosition }),
   setChallenge: (challenge: string) => set({ challenge }),
   setCRM: (CRM: string) => set({ CRM }),
-  setIndusty: (industy: string) => set({ industy }),
+  setIndustry: (industry: string) => set({ industry }),
 }));
 
 export default useFormValue;

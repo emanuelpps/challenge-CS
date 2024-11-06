@@ -8,12 +8,10 @@ import {
 } from "../Styles/Styles";
 import { Input } from "../../components/Inputs/Input";
 import useFormValue from "../../Store/FormValue";
+import { FormDataValues } from "../../Types/types";
 
-export const StepOne: React.FC = () => {
-  const { setName, name } = useFormValue() as {
-    setName: (name: string) => void;
-    name: string;
-  };
+export const StepOne: React.FC<FormDataValues> = () => {
+  const { setName, name } = useFormValue();
 
   console.log(name);
 
@@ -31,7 +29,7 @@ export const StepOne: React.FC = () => {
         <Input
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Nombre"
+          placeholder={name ? name : "nombre"}
         />
       </InputContainer>
     </Container>

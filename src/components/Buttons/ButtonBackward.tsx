@@ -9,23 +9,26 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
-  height: 100%;
-  background-color: #231331;
-  color: white;
-  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
   cursor: pointer;
   transition: background-color 0.3s ease;
   &:hover {
     background-color: gray;
   }
-  border-radius: 50px;
-  padding: 10px 20px;
 `;
 
-export const ButtonFoward: React.FC<ButtonProps> = ({ text }) => {
+export const ButtonBackward: React.FC<ButtonProps> = ({ icon }) => {
   return (
     <ButtonContainer>
-      <Button>{text}</Button>
+      <Button>
+        <img src={icon} alt="Backward icon" />
+      </Button>
     </ButtonContainer>
   );
 };
+

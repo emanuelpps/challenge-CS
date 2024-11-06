@@ -3,22 +3,38 @@ import {
   Container,
   TextContainer,
   Text,
-  InputContainer,
   Bold,
+  ButtonSelectorContainer,
 } from "../Styles/Styles";
 import useFormValue from "../../Store/FormValue";
+import { ButtonSelector } from "../../components/Buttons/ButtonSelector";
 
 export const StepTwo: React.FC = () => {
+  const positions = [
+    "Board Member",
+    "C-level",
+    "Gerente",
+    "Subgerente",
+    "Jefe area",
+    "Lider de area",
+    "Ejecutivo/analista",
+    "otro",
+  ];
   const { name } = useFormValue();
   return (
     <Container>
       <TextContainer>
         <Text>
           Genial <Bold>{name}</Bold>, ahora nos gustaría tener cierta info para
-          diseñar una gran propuesta de valor para ti: ¿Cuál es tu
-          cargo/posición dentro de tu empresa?
+          diseñar una gran propuesta de valor para ti:
         </Text>
+        <Text>¿Cuál es tu cargo/posición dentro de tu empresa?</Text>
       </TextContainer>
+      <ButtonSelectorContainer>
+        {positions.map((position) => (
+          <ButtonSelector key={position} text={position} />
+        ))}
+      </ButtonSelectorContainer>
     </Container>
   );
 };

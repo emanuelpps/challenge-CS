@@ -15,22 +15,23 @@ const Container = styled.div`
   gap: 200px
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   @media (max-width: 768px) {
     padding: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 80px
+  gap: 20px
   }
 
   @media (max-width: 480px) {
-    padding: 0;
+  padding: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 80px
+  gap: 30px
   }
+  height: 100%;
+  max-height: 100vh;
 `;
 
 function App() {
