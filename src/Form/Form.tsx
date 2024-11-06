@@ -1,4 +1,4 @@
-import { FormContainer, StyledForm, FinishButton } from "./Styles/Styles";
+import { FormContainer, StyledForm, FinishButton, CsLogoContainer, CsLogoImage } from "./Styles/Styles";
 import { Outlet, useLocation } from "react-router-dom";
 import { ButtonFoward } from "../components/Buttons/ButtonFoward";
 import { Resend } from "resend";
@@ -6,6 +6,7 @@ import ReactDOMServer from "react-dom/server";
 import { EmailTemplate } from "../email/EmailTemplate";
 import { log } from "console";
 import useFormProgress from "../Store/FormProgress";
+import CsLogo from "/assets/images/cs-logo.svg";
 
 //const resend = new Resend("re_KWnXVUjp_AQSdsmmudb8hf5uREftM76Tx");
 export const Form: React.FC = () => {
@@ -42,6 +43,9 @@ export const Form: React.FC = () => {
   return (
     <FormContainer>
       <StyledForm>
+        <CsLogoContainer>
+          <CsLogoImage src={CsLogo} />
+        </CsLogoContainer>
         <Outlet />
         {pathname === "/step-6" && (
           <FinishButton>

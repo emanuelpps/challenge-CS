@@ -74,8 +74,32 @@ export const ButtonSelectorContainer = styled.div<{ progress?: number }>`
   grid-template-rows: ${({ progress }) =>
     progress !== 2 ? `repeat(${progress}, minmax(0, 1fr))` : "initial"};
   grid-auto-flow: dense;
-  & > :nth-child(odd):last-child {
-    grid-column: span 2;
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    & > * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    & > :last-child {
+      grid-column: span 2;
+    }
+  }
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: flex-start;
+    & > * {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
   }
 `;
 
@@ -102,4 +126,17 @@ export const BackgroundColor = styled.div<{ path?: string }>`
   @media (max-width: 767px) {
     background-color: white;
   }
+`;
+
+export const CsLogoContainer = styled.div`
+  display: none;
+  @media (min-width: 769px) {
+    display: flex;
+    width: 80%;
+    justify-content: start;
+  }
+`;
+
+export const CsLogoImage = styled.img`
+  width: 130px;
 `;

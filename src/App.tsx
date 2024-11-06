@@ -28,7 +28,6 @@ const GlobalStyle = createGlobalStyle`
   html, body, #root {
     width: 100%;
     height: 100%;
-    overflow: hidden;
   }
 `;
 
@@ -40,7 +39,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   gap: 150px;
-  overflow: hidden;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 30px;
@@ -53,7 +51,9 @@ const ColumnContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  @media (min-width: 768px) {
+    overflow: hidden;
+  }
 `;
 
 const AsideContainer = styled.div`
