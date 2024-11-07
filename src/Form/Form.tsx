@@ -8,7 +8,6 @@ import {
 import { Outlet, useLocation } from "react-router-dom";
 import { ButtonFoward } from "../components/Buttons/ButtonFoward";
 import CsLogo from "/assets/images/cs-logo.svg";
-
 export const Form: React.FC = () => {
   const { pathname } = useLocation();
   const handleFinish = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -20,7 +19,7 @@ export const Form: React.FC = () => {
 
   return (
     <FormContainer>
-      <StyledForm>
+      <StyledForm pathname={pathname}>
         <CsLogoContainer>
           <CsLogoImage src={CsLogo} />
         </CsLogoContainer>

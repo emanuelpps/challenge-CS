@@ -61,8 +61,11 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const StyledForm = styled.form`
+export const StyledForm = styled.form<{ pathname?: string }>`
   width: 100%;
+  @media (min-width: 768px) {
+    width: ${({ pathname }) => (pathname === '/step-6' ? "80%" : "100%")};
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,7 +132,7 @@ export const ButtonSelectorContainer = styled.div<{ progress?: number }>`
 
 export const FinishTitle = styled.p`
   margin: 0;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
 `;
 
