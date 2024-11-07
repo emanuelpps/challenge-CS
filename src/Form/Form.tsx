@@ -27,9 +27,11 @@ export const Form: React.FC = () => {
       });
       const data = await response.json();
       setResponse(data);
-    } catch (error: string) {
+      return response
+    } catch (error) {
       console.error(error);
       setResponse(error);
+      return response
     }
   };
 
