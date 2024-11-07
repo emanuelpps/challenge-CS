@@ -1,7 +1,7 @@
 import {Resend} from 'resend';
 import { EmailTemplate } from '../../email/EmailTemplate';
 
-const resend = new Resend("re_KWnXVUjp_AQSdsmmudb8hf5uREftM76Tx")
+const resend = new Resend("re_M5LQ4Vic_JMv3msdni4qMQdYqX3azR5km")
 
 // ...
 
