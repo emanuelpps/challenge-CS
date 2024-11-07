@@ -35,10 +35,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   width: 100vw;
-  height: 100vh;
   align-items: center;
   justify-content: space-around;
   gap: 150px;
+  overflow-x: hidden;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 30px;
