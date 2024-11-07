@@ -22,7 +22,7 @@ export const Form: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/email", {
+      const response = await fetch("/api/email", {
         method: "POST",
       });
       const data = await response.json();
