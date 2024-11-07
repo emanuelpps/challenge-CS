@@ -76,7 +76,10 @@ export const ButtonContainer = styled.div`
   gap: 10px;
 `;
 export const FinishButton = styled.div`
-  width: 80%;
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 80%;
+  }
   display: flex;
   gap: 10px;
 `;
