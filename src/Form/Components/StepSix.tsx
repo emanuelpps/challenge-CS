@@ -14,18 +14,20 @@ export const StepSix: React.FC = () => {
   const location = useLocation();
   const { progress } = useFormProgress();
   return (
-    <Container>
-      <BackgroundColor path={location.pathname}/>
-      <TextContainer>
-        <TextContainer progress={progress}>
-          <Text>
-            <FinishTitle>Muchas Gracias </FinishTitle>
-          </Text>
-          <Text>por querer ser parte</Text>
-          <Text>de la familia Scoopers.</Text>
+    <>
+      <BackgroundColor path={location.pathname} />
+      <Container>
+        <TextContainer>
+          <TextContainer progress={progress}>
+            <Text>
+              <FinishTitle>Muchas Gracias </FinishTitle>
+            </Text>
+            <Text>por querer ser parte</Text>
+            <Text>de la familia Scoopers.</Text>
+          </TextContainer>
+          <ItalicText>Nos vemos pronto!</ItalicText>{" "}
         </TextContainer>
-        <ItalicText>Nos vemos pronto!</ItalicText>{" "}
-      </TextContainer>
-    </Container>
+      </Container>
+    </>
   );
 };

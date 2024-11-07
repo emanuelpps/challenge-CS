@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+const slideInFromRight = `
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+`;
+
 export const Container = styled.div`
   width: 100%;
   display: flex;
@@ -10,6 +23,9 @@ export const Container = styled.div`
   @media (min-width: 769px) {
     width: 80%;
   }
+
+  animation: slideInFromRight 0.8s ease-out forwards;
+  ${slideInFromRight}
 `;
 
 export const TextContainer = styled.div<{ progress?: number }>`
@@ -74,36 +90,27 @@ export const ButtonSelectorContainer = styled.div<{ progress?: number }>`
   grid-template-rows: ${({ progress }) =>
     progress !== 2 ? `repeat(${progress}, minmax(0, 1fr))` : "initial"};
   grid-auto-flow: dense;
-
-  /* Estilo para la versión móvil */
   @media (max-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas en móvil */
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-
-    /* Centrar el contenido de los botones */
     & > * {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
-
-    /* Si la cantidad de botones es impar, el último botón ocupará el ancho completo */
     & > :nth-child(odd):last-child {
-      grid-column: span 2; /* El último botón ocupará el ancho completo */
+      grid-column: span 2;
     }
-
-    /* Si la cantidad de botones es par, asegurar que todos los botones se distribuyan en dos columnas */
-    &:nth-child(even) {
-      grid-column: span 1; /* Cada uno ocupará una columna individual */
+    columnas */ &:nth-child(even) {
+      grid-column: span 1;
     }
   }
 
-  /* Estilo para dispositivos de escritorio (sin cambios) */
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Limita a máximo 3 columnas en desktop */
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     justify-content: flex-start;
 
@@ -116,7 +123,6 @@ export const ButtonSelectorContainer = styled.div<{ progress?: number }>`
     }
   }
 `;
-
 
 export const FinishTitle = styled.p`
   margin: 0;
