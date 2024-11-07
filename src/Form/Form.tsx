@@ -30,7 +30,6 @@ export const Form: React.FC = () => {
       return response
     } catch (error) {
       console.error(error);
-      setResponse(error);
       return response
     }
   };
