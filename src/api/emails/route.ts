@@ -10,6 +10,6 @@ export async function POST(){
     from: 'onboarding@resend.dev',
     to: 'emanuelpages.ps@gmail.com',
     subject: 'Cuestionario para ti',
-    react: EmailTemplate(), // <--- pasa la cadena de HTML puro
+    react: EmailTemplate(),
   })
 }
