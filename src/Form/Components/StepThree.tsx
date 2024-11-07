@@ -33,7 +33,6 @@ export const StepThree: React.FC = () => {
 
   const handleChallengeChange = (challenge: string) => {
     console.log("Selected challenge:", challenge);
-
     setData("challenge", challenge);
   };
   return (
