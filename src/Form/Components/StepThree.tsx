@@ -22,10 +22,10 @@ export const StepThree: React.FC = () => {
   const { setData, challenge } = useFormValue();
   const { progress, setProgress } = useFormProgress();
   const challenges = {
-    A: "Aumentar converion de leads a clientes",
+    A: "Aumentar converión de leads a clientes",
     B: "Reducir customer churn",
     C: "Implementar un programa VoC",
-    D: "Reducir costos en gestion de reclamos",
+    D: "Reducir costos en gestión de reclamos",
     E: "Optimizar procesos comerciales",
     F: "Optimizar procesos operativos",
     G: "Otros",

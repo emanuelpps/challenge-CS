@@ -29,7 +29,7 @@ export const StepTwo: React.FC = () => {
     "Gerente",
     "Subgerente",
     "Jefe area",
-    "Lider de area",
+    "Líder de área",
     "Ejecutivo/analista",
     "otro",
   ];

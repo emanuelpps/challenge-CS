@@ -22,8 +22,8 @@ export const StepSix: React.FC = () => {
             <Text>
               <FinishTitle>Muchas Gracias </FinishTitle>
             </Text>
-            <Text>por querer ser parte</Text>
-            <Text>de la familia Scoopers.</Text>
+            <Text pathname={location.pathname}>por querer ser parte</Text>
+            <Text pathname={location.pathname}>de la familia Scoopers.</Text>
           </TextContainer>
           <ItalicText>Nos vemos pronto!</ItalicText>{" "}
         </TextContainer>
