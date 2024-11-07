@@ -10,11 +10,9 @@ import { ButtonFoward } from "../components/Buttons/ButtonFoward";
 import CsLogo from "/assets/images/cs-logo.svg";
 export const Form: React.FC = () => {
   const { pathname } = useLocation();
-  const handleFinish = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleFinish = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    await fetch("/api/emails", {
-      method: "POST",
-    });
+    window.location.href = "https://www.customerscoops.com/";
   };
 
   return (
