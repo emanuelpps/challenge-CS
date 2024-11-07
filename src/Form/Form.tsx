@@ -1,11 +1,18 @@
-import React from "react";
-import { FormContainer, StyledForm, FinishButton, CsLogoContainer, CsLogoImage } from "./Styles/Styles";
+import React, { useState } from "react";
+import {
+  FormContainer,
+  StyledForm,
+  FinishButton,
+  CsLogoContainer,
+  CsLogoImage,
+} from "./Styles/Styles";
 import { Outlet, useLocation } from "react-router-dom";
 import { ButtonFoward } from "../components/Buttons/ButtonFoward";
 import useFormProgress from "../Store/FormProgress";
 import CsLogo from "/assets/images/cs-logo.svg";
 
 export const Form: React.FC = () => {
+  const [response, setResponse] = useState(null);
   const { progress } = useFormProgress();
   const { pathname } = useLocation();
 
@@ -13,12 +20,19 @@ export const Form: React.FC = () => {
 
   const handleFinish = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const response = await fetch("https://api.resend.com/api/email", {
-      method: "POST",
-    });
-    const data = await response.json()
-    console.log(data)
+
+    try {
+      const response = await fetch("http://localhost:3000/api/email", {
+        method: "POST",
+      });
+      const data = await response.json();
+      setResponse(data);
+    } catch (error: string) {
+      console.error(error);
+      setResponse(error);
+    }
   };
+
 
   return (
     <FormContainer>
@@ -29,7 +43,11 @@ export const Form: React.FC = () => {
         <Outlet />
         {pathname === "/step-6" && (
           <FinishButton>
-            <ButtonFoward text="Finalizar" type="button" onClick={handleFinish} />
+            <ButtonFoward
+              text="Finalizar"
+              type="button"
+              onClick={handleFinish}
+            />
           </FinishButton>
         )}
       </StyledForm>
