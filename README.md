@@ -1,52 +1,35 @@
+# CustomerScoops Challenge
 
+Este proyecto consiste en un **formulario de varias pantallas**, donde los usuarios pueden seleccionar diferentes opciones. El formulario cuenta con botones que permiten navegar entre las distintas pantallas, con la funcionalidad de **volver a pantallas anteriores** sin perder el estado de las selecciones. Además, incluye una **barra de progreso** que muestra el avance del formulario según la pantalla en la que se encuentre el usuario. El diseño está completamente **adaptado de manera responsive**, garantizando una experiencia óptima en dispositivos de diferentes tamaños.
 
+## Deploy
 
-#### `/src/components`
+Aplicación en producción [aquí](https://challenge-cs.vercel.app/).
 
-Aquí se guardan los componentes de React utilizados en la aplicación. Cada componente puede ser una función o clase con su propia lógica y estructura JSX.
+## Tecnologías Usadas
 
-#### `/src/styles`
+- **Lenguaje:** TypeScript
+- **Framework:** React 18
+- **Enrutamiento:** React Router DOM 6.27
+- **Componentes de correo:** @react-email/components 0.0.27
+- **Plataforma de envío de correos:** Resend 4.0.1-alpha.0
+- **Gestión de estado:** Zustand 5.0.1
+- **Estilos:** Styled-components 6.1.13
+- **Desarrollo:** Vite (para configurar y lanzar el proyecto)
 
-Contiene los archivos de estilo globales, como los archivos de CSS o archivos de temas que gestionan el diseño centralizado de la aplicación.
+# Estructura de Carpetas
 
-#### `/src/types`
+## `/API/Emails`
+Esta carpeta contiene el desarrollo del envío de correos, aunque no fue completamente implementado. Aquí se almacenaban los archivos relacionados con la integración de la plataforma de correo **Resend** y los componentes necesarios para manejar la lógica de envío de correos electrónicos.
 
-En esta carpeta se definen las interfaces o tipos de TypeScript. Esto asegura un chequeo de tipos estricto y facilita el autocompletado y las sugerencias en el editor.
+## `/components`
+En esta carpeta se encuentran todos los **componentes reutilizables** en toda la aplicación. Los componentes son partes de la UI que se utilizan en diversas secciones del proyecto.
 
-#### `/src/utils`
+## `/form`
+Aquí se encuentran todos los **componentes y estilos** relacionados con los formularios de la aplicación.
 
-Aquí se colocan funciones auxiliares o hooks personalizados que encapsulan lógica reutilizable en toda la app.
+## `/store`
+Esta carpeta maneja el **estado global** de la aplicación utilizando **Zustand**.
 
-#### `/src/App.tsx`
-
-El componente principal de React que contiene la lógica raíz de la aplicación. Usualmente importa otros componentes y actúa como contenedor de la app.
-
-#### `/src/main.tsx`
-
-El archivo de entrada de Vite donde se renderiza la aplicación de React en el DOM. Normalmente, este es el punto inicial de la aplicación.
-
-- **ReactDOM.render()**: Este método se usa para montar la aplicación de React en el contenedor raíz definido en `index.html`.
-
-#### `/src/vite-env.d.ts`
-
-Este archivo contiene las declaraciones específicas de Vite que permiten a TypeScript entender los tipos de características de Vite.
-
-#### `/src/tsconfig.json`
-
-Es el archivo de configuración de TypeScript que define opciones de compilador como rutas, módulos y comprobación de tipos.
-
-## Cómo Funciona la App
-
-La aplicación sigue una arquitectura simple de React + TypeScript:
-
-1. **Componentes de React**: Los componentes son los bloques de construcción de la aplicación. Se comunican entre sí mediante props y estados.
-2. **TypeScript**: Todo el código está escrito en TypeScript, lo que garantiza un chequeo de tipos estático durante el desarrollo.
-3. **Vite**: Se utiliza como herramienta de construcción. Es rápido y moderno, proporcionando reemplazo rápido de módulos (HMR) durante el desarrollo y construcciones optimizadas para producción.
-
-## Ejecución de la App
-
-Para iniciar la app, ejecuta los siguientes comandos después de clonar el repositorio:
-
-```bash
-npm install
-npm run dev
+## `/utils`
+Esta carpeta alberga **funciones útiles** que son reutilizadas en diferentes partes de la aplicación.
